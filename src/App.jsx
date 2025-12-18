@@ -78,61 +78,153 @@
 // }
 
 // export default App;
-import { Intro } from "./Components/Intro";
-import { BasicInput } from "./Components/BasicInput";
-import { MultipleInputs } from "./Components/MultipleInputs";
-import { TextareaInput } from "./Components/TextareaInput";
-import { SelectInput } from "./Components/SelectInput";
-import { CheckboxInput } from "./Components/CheckboxInput";
-import { RadioGroup } from "./Components/RadioGroup";
-import { SubmitForm } from "./Components/SubmitForm";
-import { ValidationForm } from "./Components/ValidationForm";
-import { DynamicFields } from "./Components/DynamicFields";
-import { ResetForm } from "./Components/ResetForm";
-import { FocusForm } from "./Components/FocusForm";
-import { LoginForm } from "./Components/LoginForm";
-import { TodoList } from "./Components/TodoList";
-import { ContactForm } from "./Components/ContactForm";
-import { SubscriptionForm } from "./Components/SubscriptionForm";
-import { ThemeProvider } from "./Blog/ThemeContext";
-import { BlogApp } from "./Blog/BlogApp";
-import { TodoApp } from "./Todo/TodoApp";
-import { WeatherApp } from "./Weather/WeatherApp";
-import { UserApp } from "./Users/UserApp";
-import { ProductApp } from "./ecommerce/ProductApp";
-export default function App() {
+// import { Intro } from "./Components/Intro";
+// import { BasicInput } from "./Components/BasicInput";
+// import { MultipleInputs } from "./Components/MultipleInputs";
+// import { TextareaInput } from "./Components/TextareaInput";
+// import { SelectInput } from "./Components/SelectInput";
+// import { CheckboxInput } from "./Components/CheckboxInput";
+// import { RadioGroup } from "./Components/RadioGroup";
+// import { SubmitForm } from "./Components/SubmitForm";
+// import { ValidationForm } from "./Components/ValidationForm";
+// import { DynamicFields } from "./Components/DynamicFields";
+// import { ResetForm } from "./Components/ResetForm";
+// import { FocusForm } from "./Components/FocusForm";
+// import { LoginForm } from "./Components/LoginForm";
+// import { TodoList } from "./Components/TodoList";
+// import { ContactForm } from "./Components/ContactForm";
+// import { SubscriptionForm } from "./Components/SubscriptionForm";
+// import { ThemeProvider } from "./Blog/ThemeContext";
+// import { BlogApp } from "./Blog/BlogApp";
+// import { TodoApp } from "./Todo/TodoApp";
+// import { WeatherApp } from "./Weather/WeatherApp";
+// import { UserApp } from "./Users/UserApp";
+// import { ProductApp } from "./ecommerce/ProductApp";
+// export default function App() {
+//   return (
+//     <>
+//     <h1>day14 tasks</h1>
+//       <Intro />
+//       <BasicInput />
+//        <MultipleInputs />
+//       <TextareaInput />
+//       <SelectInput />
+//       <CheckboxInput />
+//       <RadioGroup />
+//       <SubmitForm />
+//       <ValidationForm />
+//       <DynamicFields />
+//       <ResetForm />
+//       <FocusForm />
+//       <h1>day14 Miniprojects</h1>
+//         <LoginForm />
+//        <TodoList />
+//        <ContactForm />
+//       <SubscriptionForm />
+//       <h1>day14 Main projects</h1>
+//        <ThemeProvider>
+//       <BlogApp />
+//       <hr />
+//       <TodoApp />
+//       <hr />
+//       <WeatherApp />
+//       <hr />
+//       <UserApp />
+//       <hr />
+//       <ProductApp />
+//     </ThemeProvider>
+//          </>
+//   );
+// }
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Navbar from "./Components/Navbar";
+ 
+// import Home from "./pages/Home";
+// import About from "./pages/About";
+// import Contact from "./pages/Contact";
+// import Profile from "./pages/Profile";
+// import Settings from "./pages/Settings";
+// import NotFound from "./pages/NotFound";
+ 
+// const App = () => {
+//   return (
+//     <BrowserRouter>
+//       <Navbar />
+ 
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/about" element={<About />} />
+//         <Route path="/contact" element={<Contact />} />
+ 
+//         {/* Nested Route */}
+//         <Route path="/profile" element={<Profile />}>
+//           <Route path="settings" element={<Settings />} />
+//         </Route>
+ 
+//         {/* Redirect / 404 */}
+//         <Route path="*" element={<NotFound />} />
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// };
+ 
+// export default App;
+import { Routes, Route, NavLink } from "react-router-dom";
+
+/* Portfolio */
+import PortfolioHome from "./pages/PortfolioHome";
+import PortfolioAbout from "./pages/PortfolioAbout";
+import PortfolioContact from "./pages/PortfolioContact";
+
+/* Navigation App */
+import NavHome from "./pages/NavHome";
+import Services from "./pages/Services";
+import NavContact from "./pages/NavContact";
+
+/* Blog */
+import BlogHome from "./pages/BlogHome";
+import Posts from "./pages/Posts";
+import BlogAbout from "./pages/BlogAbout";
+
+/* Store */
+import StoreHome from "./pages/StoreHome";
+import Products from "./pages/Products";
+import StoreContact from "./pages/StoreContact";
+
+function App() {
   return (
     <>
-    <h1>day14 tasks</h1>
-      <Intro />
-      <BasicInput />
-       <MultipleInputs />
-      <TextareaInput />
-      <SelectInput />
-      <CheckboxInput />
-      <RadioGroup />
-      <SubmitForm />
-      <ValidationForm />
-      <DynamicFields />
-      <ResetForm />
-      <FocusForm />
-      <h1>day14 Miniprojects</h1>
-        <LoginForm />
-       <TodoList />
-       <ContactForm />
-      <SubscriptionForm />
-      <h1>day14 Main projects</h1>
-       <ThemeProvider>
-      <BlogApp />
-      <hr />
-      <TodoApp />
-      <hr />
-      <WeatherApp />
-      <hr />
-      <UserApp />
-      <hr />
-      <ProductApp />
-    </ThemeProvider>
-         </>
+      {/* MAIN NAVBAR */}
+      <nav style={{ marginBottom: "20px" }}>
+        <NavLink to="/" end>Portfolio</NavLink> |{" "}
+        <NavLink to="/nav">Navigation</NavLink> |{" "}
+        <NavLink to="/blog">Blog</NavLink> |{" "}
+        <NavLink to="/store">Store</NavLink>
+      </nav>
+
+      <Routes>
+        {/* PORTFOLIO */}
+        <Route path="/" element={<PortfolioHome />} />
+        <Route path="/portfolio/about" element={<PortfolioAbout />} />
+        <Route path="/portfolio/contact" element={<PortfolioContact />} />
+
+        {/* NAVIGATION APP */}
+        <Route path="/nav" element={<NavHome />} />
+        <Route path="/nav/services" element={<Services />} />
+        <Route path="/nav/contact" element={<NavContact />} />
+
+        {/* BLOG */}
+        <Route path="/blog" element={<BlogHome />} />
+        <Route path="/blog/posts" element={<Posts />} />
+        <Route path="/blog/about" element={<BlogAbout />} />
+
+        {/* STORE */}
+        <Route path="/store" element={<StoreHome />} />
+        <Route path="/store/products" element={<Products />} />
+        <Route path="/store/contact" element={<StoreContact />} />
+      </Routes>
+    </>
   );
 }
+
+export default App;
